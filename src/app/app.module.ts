@@ -7,6 +7,7 @@ import { APP_ROUTES } from './app.routes';
 
 // MODULOS
 import { PagesModule } from './pages/pages.module';
+import { FormsModule } from '@angular/forms';
 
 
 import { AppComponent } from './app.component';
@@ -19,19 +20,13 @@ import { RegisterComponent } from './login/register.component';
     AppComponent,
     LoginComponent,
     RegisterComponent
-    // DashboardComponent,
-    // ProgressComponent,
-    // Graficas1Component,
-    // HeaderComponent,
-    // NopagefoundComponent,
-    // SidebarComponent,
-    // BreadcrumbsComponent,
-    // PagesComponent,
+   
   ],
   imports: [
     BrowserModule,
     APP_ROUTES,
-    PagesModule
+    PagesModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
