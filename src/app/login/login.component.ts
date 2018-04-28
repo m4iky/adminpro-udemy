@@ -70,7 +70,7 @@ export class LoginComponent implements OnInit {
           let token = googleUser.getAuthResponse().id_token
 
           this._usu.loginGoogle(token).subscribe(res => {
-              this._router.navigate(['/dashboard']);
+              window.location.href = '#/dashboard'
           })
         })
     }

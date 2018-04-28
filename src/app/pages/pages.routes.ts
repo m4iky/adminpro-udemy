@@ -7,6 +7,7 @@ import { AccountSettingsComponent } from './account-settings/account-settings.co
 import { PromesasComponent } from './promesas/promesas.component';
 import { RxjsComponent } from './rxjs/rxjs.component';
 import { LoginGuardiaGuard } from '../services/services.index';
+import { PerfilComponent } from './perfil/perfil.component';
 
 
 const pagesRoute: Routes = [
@@ -16,6 +17,8 @@ const pagesRoute: Routes = [
     canActivate: [ LoginGuardiaGuard ],
     children: [
       { path: 'dashboard', component: DashboardComponent, data : {titulo: 'Tablero'} },
+      { path: 'perfil', component: PerfilComponent, data : {titulo: 'Perfil'} },
+      
       { path: 'progress', component: ProgressComponent, data : {titulo: 'Barra de Progreso'} },
       { path: 'grafica1', component: Graficas1Component, data : {titulo: 'Gráficas'} },
       { path: 'promesas', component: PromesasComponent, data : {titulo: 'Promesas'} },
