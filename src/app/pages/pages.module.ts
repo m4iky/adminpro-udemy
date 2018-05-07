@@ -24,7 +24,11 @@ import { AccountSettingsComponent } from './account-settings/account-settings.co
 import { PromesasComponent } from './promesas/promesas.component';
 import { RxjsComponent } from './rxjs/rxjs.component';
 import { PerfilComponent } from './perfil/perfil.component';
-
+import { UsuariosComponent } from './usuarios/usuarios.component';
+import { ModalUploadsComponent } from '../components/modal-uploads/modal-uploads.component';
+import { HospitalesComponent } from './hospitales/hospitales.component';
+import { MedicosComponent } from './medicos/medicos.component';
+import { MedicoComponent } from './medicos/medico.component';
 
 @NgModule({
     declarations: [
@@ -37,8 +41,13 @@ import { PerfilComponent } from './perfil/perfil.component';
         AccountSettingsComponent,
         PromesasComponent,
         RxjsComponent,
-        PerfilComponent
-
+        PerfilComponent,
+        UsuariosComponent,
+        ModalUploadsComponent,
+        HospitalesComponent,
+        MedicosComponent,
+        MedicoComponent
+        
     ],
     imports: [
         CommonModule,

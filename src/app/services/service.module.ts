@@ -8,9 +8,12 @@ import {
           SidebarService,
           UsuarioService,
           LoginGuardiaGuard,     
-          SubirArchivoService
+          SubirArchivoService,
+          HospitalService,
+          MedicoService
 
        } from './services.index';
+import { ModalUploadService } from '../components/modal-uploads/modal-upload.service';
 
 
 
@@ -25,7 +28,10 @@ import {
     SidebarService,
     UsuarioService,
     LoginGuardiaGuard,
-    SubirArchivoService
+    SubirArchivoService,
+    ModalUploadService,
+    HospitalService,
+    MedicoService
   ],
   declarations: []
 })

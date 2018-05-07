@@ -7,8 +7,12 @@ import { URL_SERVICES } from '../config/config';
 export class ImagenPipe implements PipeTransform {
 
   transform(img: string, tipo: string = 'usuario'): any {
-   
-   if (img.indexOf('https') >= 0) {
+  if (!img || img === undefined) {
+     let nonUrl = `${URL_SERVICES}/img/no-existe/no-existe`;
+    
+    return nonUrl
+  }
+    if (img.indexOf('https') >= 0) {
      return img
    }
    

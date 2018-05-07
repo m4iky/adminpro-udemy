@@ -1,0 +1,73 @@
+<div class="row animated fadeIn">
+    <div class="col-12">
+        <div class="card">
+            <div class="card-body">
+
+                <input #input id="buscador" (keyup)='buscarMedico( input.value)' type="text" class="form-control" placeholder="Buscar Médico...">
+
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row" *ngIf='!cargando'>
+    <div class="col-12">
+        <div class="card">
+            <div class="card-body">
+                <div class="text-right">
+
+                    <button [routerLink]="['/medico', 'nuevo']" class="btn btn-rounded btn-primary">
+                            <i class="fa fa-plus"> </i> Nuevo Medico
+                        </button>
+                </div>
+
+                <h3 class="card-title">Médicos Registrados (<small>{{total}}</small>) </h3>
+
+                <table class="table table-hover">
+                    <thead>
+                        <tr>
+                            <th>Imagen</th>
+                            <th>Nombre</th>
+                            <th>Hospital</th>
+
+                            <th>--------</th>
+
+                        </tr>
+
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let med of medicos">
+                            <td>
+                                <img (click)="mostrarModal(med)" [src]="med.img | imagen: 'medico'" width="50" style="cursor: pointer;" class="img">
+                            </td>
+                            <td> {{med.nombre}} </td>
+
+                            <td> {{med.hospital.nombre}} </td>
+
+                            <td>
+                                <button [routerLink]="['/medico', med._id]" class="btn btn-primary">
+                                      <i class="fa fa-edit"></i>
+                              </button>
+
+                                <button (click)="borrarMedico(med)" class="btn btn-danger">
+                                      <i class="fa fa-trash-o"></i>
+                              </button>
+                            </td>
+
+                        </tr>
+
+                    </tbody>
+                </table>
+
+                <button (click)="cambiarDesde(-5)" class="btn btn-secondary">
+                    Anterior
+                  </button>
+
+                <button [disabled]='total < 6 || medicos.length < 5' (click)="cambiarDesde(5)" class="btn btn-secondary">
+                    Siguiente
+                  </button>
+
+            </div>
+        </div>
+    </div>
+</div>
