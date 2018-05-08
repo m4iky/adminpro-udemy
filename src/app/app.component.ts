@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { SettingsService } from './services/services.index';
-declare function init_plugins()
 
 
 @Component({
@@ -15,6 +14,5 @@ export class AppComponent implements OnInit {
   }
 
   ngOnInit() {
-   init_plugins();
   }
 }

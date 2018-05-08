@@ -1,0 +1,73 @@
+<div class="row">
+    <div class="col-4">
+        <div class="card">
+            <div class="card-body">
+                <h4 class="card-title">Usuarios</h4>
+                <table class="table table-hover">
+                    <tbody>
+                        <tr *ngIf="usuarios.length === 0">
+                            <td class="alert alert-danger">
+                                No existen coincidencias.
+                            </td>
+                        </tr>
+                        <tr *ngFor="let usu of usuarios" [routerLink]="['/usuarios']" style="cursor: pointer;">
+                            <td><img [src]="usu.img | imagen" width="50" class="img-circle"></td>
+                            <td>{{usu.nombre}}</td>
+
+                        </tr>
+                    </tbody>
+
+                </table>
+
+            </div>
+        </div>
+    </div>
+
+    <div class="col-4">
+        <div class="card">
+            <div class="card-body">
+                <h4 class="card-title">Médicos</h4>
+                <table class="table table-hover">
+                    <tbody>
+                        <tr *ngIf="medicos.length === 0">
+                            <td class="alert alert-danger">
+                                No existen coincidencias.
+                            </td>
+                        </tr>
+                        <tr *ngFor="let med of medicos" [routerLink]="['/medico', med._id]" style="cursor: pointer;">
+                            <td><img [src]="med.img | imagen: 'medico'" width="50" class="img-fluid"> </td>
+                            <td>{{med.nombre}} </td>
+
+                        </tr>
+                    </tbody>
+
+                </table>
+
+            </div>
+        </div>
+    </div>
+
+    <div class="col-4">
+        <div class="card">
+            <div class="card-body">
+                <h4 class="card-title">Hospitales</h4>
+                <table class="table table-hover">
+                    <tbody>
+                        <tr *ngIf="hospitales.length === 0">
+                            <td class="alert alert-danger">
+                                No existen coincidencias.
+                            </td>
+                        </tr>
+                        <tr *ngFor="let hosp of hospitales" [routerLink]="['/hospitales']" style="cursor: pointer;">
+                            <td><img [src]="hosp.img | imagen: 'hospital'" width="50" class="img-fluid"></td>
+                            <td>{{hosp.nombre}}</td>
+
+                        </tr>
+                    </tbody>
+
+                </table>
+
+            </div>
+        </div>
+    </div>
+</div>
