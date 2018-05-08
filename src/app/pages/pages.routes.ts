@@ -6,7 +6,7 @@ import { Graficas1Component } from './graficas1/graficas1.component';
 import { AccountSettingsComponent } from './account-settings/account-settings.component';
 import { PromesasComponent } from './promesas/promesas.component';
 import { RxjsComponent } from './rxjs/rxjs.component';
-import { LoginGuardiaGuard, AdminGuard } from '../services/services.index';
+import { LoginGuardiaGuard, AdminGuard, VerificaTokenGuard } from '../services/services.index';
 import { PerfilComponent } from './perfil/perfil.component';
 import { UsuariosComponent } from './usuarios/usuarios.component';
 import { HospitalesComponent } from './hospitales/hospitales.component';
@@ -16,12 +16,12 @@ import { BusquedaComponent } from './busqueda/busqueda.component';
 
 
 const pagesRoute: Routes = [
-  {
-    path: '',
-    component: PagesComponent,
-    canActivate: [ LoginGuardiaGuard ],
-    children: [
-      { path: 'dashboard', component: DashboardComponent, data : {titulo: 'Tablero'} },
+  // {
+  //   path: '',
+  //   component: PagesComponent,
+  //   canActivate: [ LoginGuardiaGuard ],
+  //   children: [
+      { path: 'dashboard', component: DashboardComponent, canActivate: [ VerificaTokenGuard], data : {titulo: 'Tablero'} },
       
       { path: 'progress', component: ProgressComponent, data : {titulo: 'Barra de Progreso'} },
       { path: 'grafica1', component: Graficas1Component, data : {titulo: 'Gráficas'} },
@@ -40,8 +40,8 @@ const pagesRoute: Routes = [
         
       { path: '', redirectTo: '/dashboard', pathMatch: 'full' }
     ]
-  }
-];
+//   }
+// ];
 
 
 export const PAGES_ROUTES = RouterModule.forChild( pagesRoute );

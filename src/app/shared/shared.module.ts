@@ -9,6 +9,7 @@ import { NopagefoundComponent } from './nopagefound/nopagefound.component';
 import { RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { PipesModule } from '../pipes/pipes.module';
+import { ModalUploadsComponent } from '../components/modal-uploads/modal-uploads.component';
 
 @NgModule({
     imports : [
@@ -20,14 +21,16 @@ import { PipesModule } from '../pipes/pipes.module';
         BreadcrumbsComponent,
         HeaderComponent,
         SidebarComponent,
-        NopagefoundComponent
+        NopagefoundComponent,
+        ModalUploadsComponent
     ],
 
     exports: [
          BreadcrumbsComponent,
         HeaderComponent,
         SidebarComponent,
-        NopagefoundComponent
+        NopagefoundComponent,
+        ModalUploadsComponent
     ],
     providers: [],
 })

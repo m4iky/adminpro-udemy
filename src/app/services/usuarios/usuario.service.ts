@@ -2,7 +2,8 @@ import { Injectable } from '@angular/core';
 import { Usuario } from '../../modelos/usuario.model';
 import { HttpClient } from '@angular/common/http';
 import { URL_SERVICES } from '../../config/config';
-// import 'rxjs/add/operator/map';
+import 'rxjs/add/operator/map';
+import 'rxjs/add/operator/catch';
 import swal from 'sweetalert2';
 import { Router } from '@angular/router';
 import { SubirArchivoService } from '../subirArchivo/subir-archivo.service';
@@ -27,6 +28,23 @@ export class UsuarioService {
       return false;
     }
   } 
+
+  renovarToken() {
+    
+    let url = `${URL_SERVICES}/renovartoken?token=${this.token}`;
+
+    return this._http.get(url).map((tok: any) => {
+      this.token = tok.token
+      localStorage.setItem('token', this.token);
+
+        return true
+    }).catch( err => {
+      alert('Error al renovar Token')
+        this.cerrarSesion()
+      return Observable.throw(err);
+      
+    })
+  }
 
   cerrarSesion() {
     this.usuario = null;
